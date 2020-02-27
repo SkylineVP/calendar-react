@@ -1,0 +1,35 @@
+.navigation {
+  background-color: #0b3157;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.prevNext {
+  color: #48C1C2;
+  font-family: 'Montserrat', "Open Sans";
+  font-size: 15px;
+  padding: 12px;
+}
+
+.mainNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.modeSelector {
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+
+  svg {
+    opacity: 0.5;
+    size: 12px;
+  }
+}

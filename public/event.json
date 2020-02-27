@@ -1,0 +1,53 @@
+[
+  {
+    "date": "20-15-2020",
+    "events": [
+      {
+        "name": "name",
+        "body": "body",
+        "time": "12:00",
+        "isIn": true
+      },
+      {
+        "name": "name2",
+        "body": "body",
+        "time": "15:00",
+        "isIn": true
+      }
+    ]
+  },
+  {
+    "date": "28-02-2020",
+    "events": [
+      {
+        "name": "name",
+        "body": "body",
+        "time": "12:00",
+        "isIn": false
+      },
+      {
+        "name": "name3",
+        "body": "body",
+        "time": "16:00",
+        "isIn": false
+      }
+    ]
+  },
+  {
+    "date": "01-03-2020",
+    "events": [
+      {
+        "name": "name6",
+        "body": "body",
+        "time": "12:00",
+        "isIn": false
+      },
+      {
+        "name": "name9",
+        "body": "body",
+        "time": "15:00",
+        "isIn": false
+      }
+    ]
+  }
+]
