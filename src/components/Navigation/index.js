@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import style              from './Navigation.module.scss'
 import NavButton          from "../NavButton";
-import ModeSelctor        from "../ModeSelector";
+import ModeSelector       from "../ModeSelector";
+import {MODE_CALENDAR}    from "../../constants";
 
 class Navigation extends Component {
     constructor(props) {
@@ -18,15 +19,22 @@ class Navigation extends Component {
     render() {
         const dropDownMenu =
             <div className={style.dropDownMenu}>
-                <NavButton className={style.modeButton}>Mode1</NavButton>
-                <NavButton className={style.modeButton}>Mode2</NavButton>
+                <NavButton className={style.modeButton} onClick={this.props.changeModeCalendar}
+                           value={MODE_CALENDAR.WEEK}>This week</NavButton>
+                <NavButton className={style.modeButton} onClick={this.props.changeModeCalendar}
+                           value={MODE_CALENDAR.MONTH}>This month</NavButton>
             </div>;
+
         return (
             <div className={style.navigation}>
                 <div className={style.mainNav}>
+
                     <NavButton className={style.prevNext}
                                style={{textAlign: "left"}}>Prev</NavButton>
-                    <ModeSelctor className={style.modeSelector} onClick={this.openMenu}/>
+
+                    <ModeSelector className={style.modeSelector}
+                                  onClick={this.openMenu} isOpen={this.state.isOpen}>JUNE</ModeSelector>
+
                     <NavButton className={style.prevNext}
                                style={{textAlign: "right"}}>Next</NavButton>
                 </div>

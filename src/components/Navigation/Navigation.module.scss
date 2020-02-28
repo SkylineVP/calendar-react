@@ -1,15 +1,25 @@
+@import "../../constants/theme-color.module";
+
+%button {
+  cursor: pointer;
+}
+
 .navigation {
-  background-color: #0b3157;
+  background-color: $primary-color;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
 .prevNext {
-  color: #48C1C2;
-  font-family: 'Montserrat', "Open Sans";
-  font-size: 15px;
+  @extend %button;
+  color: $accent-color;
+  font-family: $font-fa;
+  font-size: 12px;
   padding: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+
 }
 
 .mainNav {
@@ -21,10 +31,12 @@
 }
 
 .modeSelector {
+  @extend %button;
   color: white;
-  font-family: 'Montserrat';
-  font-size: 16px;
-  font-weight: 800;
+  font-family: $font-fa;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
 
@@ -32,4 +44,27 @@
     opacity: 0.5;
     size: 12px;
   }
+}
+
+.dropDownMenu {
+  color: $grey-theme;
+  padding: 5px;
+}
+
+.modeButton {
+  @extend %button;
+  display: inline-block;
+  font-family: $font-fa;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  padding: 7px 12px;
+  border: 1px solid $grey-theme;
+  border-radius: 30px;
+  width: 103px;
+
+}
+
+.modeButton + .modeButton {
+  margin-left: 6px;
 }
