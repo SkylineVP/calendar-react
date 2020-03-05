@@ -2,8 +2,9 @@ import React, {Component} from "react";
 import style              from './Navigation.module.scss'
 import NavButton          from "../NavButton";
 import ModeSelector       from "../ModeSelector";
-import {MODE_CALENDAR}    from "../../constants";
-
+import {ACTION_BUTTON, MODE_CALENDAR} from "../../constants";
+import classNames from "classnames"
+import moment from "moment";
 class Navigation extends Component {
     constructor(props) {
         super(props);
@@ -20,9 +21,9 @@ class Navigation extends Component {
         const dropDownMenu =
             <div className={style.dropDownMenu}>
                 <NavButton className={style.modeButton} onClick={this.props.changeModeCalendar}
-                           value={MODE_CALENDAR.WEEK}>This week</NavButton>
+                           mode={MODE_CALENDAR.WEEK}>This week</NavButton>
                 <NavButton className={style.modeButton} onClick={this.props.changeModeCalendar}
-                           value={MODE_CALENDAR.MONTH}>This month</NavButton>
+                           mode={MODE_CALENDAR.MONTH}>This month</NavButton>
             </div>;
 
         return (
@@ -30,13 +31,13 @@ class Navigation extends Component {
                 <div className={style.mainNav}>
 
                     <NavButton className={style.prevNext}
-                               style={{textAlign: "left"}}>Prev</NavButton>
+                               style={{textAlign: "left"}} onClick={this.props.changheActiveDate} action={ACTION_BUTTON.PREV}>{moment(this.props.date).subtract(1,'M').format('MMM')}</NavButton>
 
                     <ModeSelector className={style.modeSelector}
-                                  onClick={this.openMenu} isOpen={this.state.isOpen}>JUNE</ModeSelector>
+                                  onClick={this.openMenu} isOpen={this.state.isOpen}>{moment(this.props.date).format('MMMM')}</ModeSelector>
 
                     <NavButton className={style.prevNext}
-                               style={{textAlign: "right"}}>Next</NavButton>
+                               style={{textAlign: "right"}} onClick={this.props.changheActiveDate} action={ACTION_BUTTON.NEXT}>{moment(this.props.date).add(1,'M').format('MMM')}</NavButton>
                 </div>
 
                 {this.state.isOpen && dropDownMenu}
