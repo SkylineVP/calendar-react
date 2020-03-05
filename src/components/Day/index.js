@@ -16,9 +16,7 @@ function Day(props) {
         <div style={{padding:"10px", flex:1,textAlign:"center"}}>
             <div>
                 {
-                    props.mode===MODE_CALENDAR.MONTH
-                        ?day.format("M")==props.month&&day.format("D")
-                        :day.format("D")
+                    day.format("M")==props.month&&day.format("D")
                 }
             </div>
            {/* {event.map(item => <EventItem item={item}/>)}*/}
