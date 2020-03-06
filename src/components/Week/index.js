@@ -1,15 +1,18 @@
-import React, {Component} from "react";
+import React from "react";
 import Day from "../Day";
 import moment from "moment";
 
 function Week(props) {
-    const day=moment(props.monday);
-    const days=[];
-    for (let i=0;i<7;i++) {
-            days.push(<Day  date={moment(day)} month={props.firstDay.format("M")} mode={props.mode}/>);
-            day.add(1,'d');
+    const {firstDay, mode, monday} = props;
+    const day = moment(monday);
+    const days = [];
+    for (let i = 0; i < 7; i++) {
+        days.push(<Day date={moment(day)}
+                       month={firstDay.format("M")}
+                       mode={mode}/>);
+        day.add(1, 'd');
     }
-    return <div style={{display:"flex"}}>
+    return <div style={{display: "flex"}}>
         {days}
     </div>;
 

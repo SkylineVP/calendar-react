@@ -23,15 +23,14 @@ class Calendar extends Component {
             mode: mode
         })
     };
-    changeActiveDate=async (action)=>{
+    changeActiveDate=(action)=>{
         const newDate=this.state.activeDate;
         if (action===ACTION_BUTTON.PREV){
           newDate.subtract(1,ACTION[this.state.mode]);
         }else {
             newDate.add(1,ACTION[this.state.mode]);
         }
-        console.log(newDate.format('D'))
-     await this.setState({
+      this.setState({
           activeDate:moment(newDate)
       })
     };

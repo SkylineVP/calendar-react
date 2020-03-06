@@ -1,5 +1,4 @@
-import React, {Component} from "react";
-import PropTypes          from 'prop-types';
+import React from "react";
 import moment             from "moment";
 import {MODE_CALENDAR} from "../../constants";
 
@@ -10,20 +9,18 @@ function EventItem(props) {
 }
 
 function Day(props) {
-    const {date, event} = props;
+    const {date, event,mode,month} = props;
     const day=moment(date);
-    const div = (
-        <div style={{padding:"10px", flex:1,textAlign:"center"}}>
-            <div>
-                {
-                    day.format("M")==props.month&&day.format("D")
-                }
-            </div>
-           {/* {event.map(item => <EventItem item={item}/>)}*/}
-        </div>
-    );
-    return div;
-}
+    const dayView = mode===MODE_CALENDAR.MONTH?
+        day.format("M")===month&&day.format("D")
+        :day.format("D");
 
+    return   <div style={{padding:"10px", flex:1,textAlign:"center"}}>
+        <div>
+            {dayView}
+        </div>
+        {/* {event.map(item => <EventItem item={item}/>)}*/}
+    </div>;
+}
 
 export default Day
