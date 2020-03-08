@@ -118,5 +118,62 @@
         "isIn": true
       }
     ]
+  },
+  {
+    "date": "12-04-2020",
+    "events": [
+      {
+        "name": "name6",
+        "body": "body",
+        "time": "12:00",
+        "isIn": true
+      }
+    ]
+  },
+  {
+    "date": "08-04-2020",
+    "events": [
+      {
+        "name": "name6",
+        "body": "body",
+        "time": "12:00",
+        "isIn": true
+      },
+      {
+        "name": "name9",
+        "body": "body",
+        "time": "15:00",
+        "isIn": true
+      },
+      {
+        "name": "name9",
+        "body": "body",
+        "time": "15:00",
+        "isIn": true
+      }
+    ]
+  },
+  {
+    "date": "24-03-2020",
+    "events": [
+      {
+        "name": "name6",
+        "body": "body",
+        "time": "12:00",
+        "isIn": true
+      },
+      {
+        "name": "name9",
+        "body": "body",
+        "time": "15:00",
+        "isIn": false
+      },
+      {
+        "name": "name9",
+        "body": "body",
+        "time": "15:00",
+        "isIn": true
+      }
+    ]
   }
 ]

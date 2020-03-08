@@ -5,7 +5,8 @@ import classNames        from 'classnames'
 import style             from './Day.module.scss'
 
 function EventItem( props ) {
-    return <div className={classNames(style.event, {[style.activeEvent]: props.item.isIn})}></div>
+    return <div className={classNames(style.event,
+        {[style.activeEvent]: props.item.isIn && moment(props.date, 'DD-MM-YYYY').isAfter(moment())})}/>
 }
 
 function Day( props ) {
@@ -16,8 +17,8 @@ function Day( props ) {
                     ? day.format("M") === month && day.format("D")
                     : day.format("D");
     let dayEvents;
-    if (events) {
-        dayEvents = events.map(( item, index ) => index < 3 ? <EventItem item={item}/> : null);
+    if (events && day.format("M") === month) {
+        dayEvents = events.map(( item, index ) => index < 3 ? <EventItem item={item} day={day} date={day}/> : null);
     }
 
     return (
