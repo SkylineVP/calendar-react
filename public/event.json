@@ -1,6 +1,6 @@
 [
   {
-    "date": "20-15-2020",
+    "date": "20-03-2020",
     "events": [
       {
         "name": "name",
@@ -17,12 +17,30 @@
     ]
   },
   {
-    "date": "28-02-2020",
+    "date": "28-03-2020",
     "events": [
       {
         "name": "name",
         "body": "body",
         "time": "12:00",
+        "isIn": false
+      },
+      {
+        "name": "name3",
+        "body": "body",
+        "time": "16:00",
+        "isIn": false
+      },
+      {
+        "name": "name3",
+        "body": "body",
+        "time": "16:00",
+        "isIn": false
+      },
+      {
+        "name": "name3",
+        "body": "body",
+        "time": "16:00",
         "isIn": false
       },
       {
@@ -47,6 +65,57 @@
         "body": "body",
         "time": "15:00",
         "isIn": false
+      }
+    ]
+  },
+  {
+    "date": "05-03-2020",
+    "events": [
+      {
+        "name": "name6",
+        "body": "body",
+        "time": "12:00",
+        "isIn": true
+      },
+      {
+        "name": "name9",
+        "body": "body",
+        "time": "15:00",
+        "isIn": false
+      }
+    ]
+  },
+  {
+    "date": "09-03-2020",
+    "events": [
+      {
+        "name": "name6",
+        "body": "body",
+        "time": "12:00",
+        "isIn": true
+      },
+      {
+        "name": "name9",
+        "body": "body",
+        "time": "15:00",
+        "isIn": false
+      },
+      {
+        "name": "name9",
+        "body": "body",
+        "time": "15:00",
+        "isIn": true
+      }
+    ]
+  },
+  {
+    "date": "15-03-2020",
+    "events": [
+      {
+        "name": "name6",
+        "body": "body",
+        "time": "12:00",
+        "isIn": true
       }
     ]
   }
