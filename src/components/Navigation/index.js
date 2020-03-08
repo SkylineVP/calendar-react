@@ -37,7 +37,7 @@ class Navigation extends Component {
                                                                                                     .format('D')}-${moment(this.props.date)
                 .endOf('week')
                 .format("D")}`;
-            debugger;
+
         }
         else {
             prevButtonText = moment(this.props.date).subtract(1, 'M').format('MMM');
