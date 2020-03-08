@@ -1,15 +1,15 @@
 import React                     from "react";
 import Icon                      from '@mdi/react';
 import {mdiAppleKeyboardControl} from '@mdi/js';
-
 function ModeSelector(props) {
 
-    let {isOpen, onClick, style, refl} = props;
+    let {isOpen, onClick, style, refl, className} = props;
     return (
-        <div ref={refl}
-             style={style}
-             className={props.className}
-             onClick={onClick}>
+        <div
+            ref={refl}
+            style={style}
+            className={className}
+            onClick={onClick}>
             <p>{props.children}</p>
             <Icon path={mdiAppleKeyboardControl}
                   color="#E6EAEE"

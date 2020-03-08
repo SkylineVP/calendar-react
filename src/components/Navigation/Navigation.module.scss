@@ -42,6 +42,8 @@
   align-items: center;
 
   svg {
+    margin-left: 6px;
+    transform: translateY(-5px);
     opacity: 0.5;
     size: 12px;
   }
