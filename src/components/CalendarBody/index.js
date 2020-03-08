@@ -1,31 +1,32 @@
-import React from "react";
-import Week from '../Week'
-import moment from "moment";
-import {MODE_CALENDAR} from "../../constants";
+import React             from "react";
+import Week              from '../Week'
+import moment            from "moment";
+import { MODE_CALENDAR } from "../../constants";
 
 
-function CalendarBody(props) {
-    const {mode, date, selectedDate} = props;
-    const getWeeks = () => {
-        let weeks = [];
-        if (mode === MODE_CALENDAR.WEEK) {
-            return <Week monday={moment(date).startOf('week')}
-                         firstDay={moment(date)}/>
-        }
-        const firstDateOfMonth = moment(date).date(1);
-        let monday = getMonday(firstDateOfMonth);
-        do {
-            weeks.push(<Week monday={moment(monday)}
-                             firstDay={moment(firstDateOfMonth)}
-                             mode={mode}/>);
-            monday.add(7, "d");
-        } while (monday.format('M') === firstDateOfMonth.format('M'));
-
-        return weeks;
-    };
-
+function CalendarBody( props ) {
+    const {mode, date, selectedDate, changeSelectedDate, events} = props;
     let weeks = [];
-    weeks = getWeeks();
+    const firstDateOfMonth = moment(date).date(1);
+
+    if (mode === MODE_CALENDAR.WEEK) {
+        return <Week monday={moment(date).startOf('week')}
+                     firstDateOfMonth={moment(date)}
+                     mode={mode}
+                     selectedDate={selectedDate}
+                     changeSelectedDate={changeSelectedDate}
+                     events={events}/>
+    }
+    let monday = getMonday(firstDateOfMonth);
+    do {
+        weeks.push(<Week monday={moment(monday)}
+                         firstDateOfMonth={moment(firstDateOfMonth)}
+                         mode={mode}
+                         selectedDate={selectedDate}
+                         changeSelectedDate={changeSelectedDate}
+                         events={events}/>);
+        monday.add(7, "d");
+    } while (monday.format('M') === firstDateOfMonth.format('M'));
 
     return (<>{weeks}</>)
 
@@ -35,7 +36,7 @@ function CalendarBody(props) {
 export default CalendarBody;
 
 
-function getMonday(date) {
+function getMonday( date ) {
 
     const monday = moment(date);
     const weekDayNumber = monday.day();
