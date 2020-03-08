@@ -10,7 +10,8 @@ class Navigation extends Component {
         super(props);
         this.state = {
             isOpen: false
-        }
+        };
+        this.toggleContainer = React.createRef();
     }
 
     openMenu = () => {
@@ -20,6 +21,22 @@ class Navigation extends Component {
         this.props.changeModeCalendar(mode);
         this.setState({isOpen: !this.state.isOpen})
     };
+
+    componentDidMount() {
+        window.addEventListener('click', this.onClickOutsideHandler);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('click', this.onClickOutsideHandler);
+    }
+
+    onClickOutsideHandler = ( event ) => {
+        console.log(event.target);
+        if (this.state.isOpen && !this.toggleContainer.current.contains(event.target)) {
+            this.setState({isOpen: false});
+        }
+    };
+
 
     render() {
         const dropDownMenu =
@@ -45,6 +62,7 @@ class Navigation extends Component {
             modeSelectorText = moment(this.props.date).format('MMMM');
         }
 
+
         return (<>
                 <div className={style.navigation}>
                     <div className={style.mainNav}>
@@ -52,7 +70,8 @@ class Navigation extends Component {
                         <NavButton className={style.prevNext}
                                    style={{textAlign: "left"}} onClick={this.props.changheActiveDate}
                                    action={ACTION_BUTTON.PREV}>{prevButtonText}</NavButton>
-                        <ModeSelector style={this.props.mode === MODE_CALENDAR.MONTH
+                        <ModeSelector refl={this.toggleContainer}
+                                      style={this.props.mode === MODE_CALENDAR.MONTH
                                              ? {textTransform: 'uppercase'}
                                              : null}
                                       className={style.modeSelector}

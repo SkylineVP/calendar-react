@@ -3,9 +3,11 @@ import Icon                      from '@mdi/react';
 import {mdiAppleKeyboardControl} from '@mdi/js';
 
 function ModeSelector(props) {
-    let {isOpen, onClick, style} = props;
+
+    let {isOpen, onClick, style, refl} = props;
     return (
-        <div style={style}
+        <div ref={refl}
+             style={style}
              className={props.className}
              onClick={onClick}>
             <p>{props.children}</p>
